@@ -1,10 +1,7 @@
 const gridContainer = document.querySelector('.grid-container')
-gridContainer.style.cssText = 'display: flex;; flex-direction: column;'
-gridContainer.style.cssText = 'height: 100vh; border: 20px solid yellow;'
 
-
-let numberOfSquares = 16;
-for (let i = 0; i < numberOfSquares; i++) {
+let numberOfSquares = 32;
+for (let i = 1; i <= numberOfSquares; i++) {
     const square = document.createElement('div');
 
     square.textContent = `SQUARE ${i}`;
@@ -15,7 +12,8 @@ square.setAttribute('id', `${i}`)
 }
 
 
-
+gridContainer.style.cssText = 'display: flex;;  flex-wrap: wrap;'
+gridContainer.style.border = '10px solid yellow'
 
 
 
