@@ -21,4 +21,15 @@ square.addEventListener('mouseover', () => {
 })    
 })
 
+const btnContainer = document.querySelector('#btn-container')
+const generateNewGridBtn = document.createElement('button')
+btnContainer.appendChild(generateNewGridBtn)
 
+generateNewGridBtn.classList.add('btn')
+generateNewGridBtn.textContent = 'GENERATE NEW GRID';
+
+function promptUser() {
+    prompt('Enter number of squares per line')
+}
+
+generateNewGridBtn.addEventListener('click', promptUser)

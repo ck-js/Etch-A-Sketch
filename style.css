@@ -13,3 +13,24 @@ body {
     grid-template-rows: repeat(16, 1fr);
     grid-template-columns: repeat(16, 1fr);
 }
+
+#btn-container {
+    display: flex;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+
+    border: 5px solid yellow;
+
+}
+
+.btn {
+    height: 75%;
+    width: 50%;
+    background-color: yellow;
+    color: black;
+    border-radius: 20px;
+    font-size: 50px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 700;
+}
