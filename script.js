@@ -1,6 +1,7 @@
-const Container = document.querySelector('.grid-container')
+const container = document.querySelector('.grid-container')
 
 let numberOfSquares = 256;
+
 for (let i = 1; i <= numberOfSquares; i++) {
     const square = document.createElement('div');
 
@@ -9,10 +10,10 @@ for (let i = 1; i <= numberOfSquares; i++) {
 square.setAttribute('id', `${i}`)    
 square.setAttribute('class', 'square')
 
-    Container.appendChild(square)
+    container.appendChild(square)
 }
 
-Container.style.border = '10px solid yellow'
+container.style.border = '10px solid yellow'
 
 const squares = document.querySelectorAll('.square')
 squares.forEach((square) => {
@@ -28,8 +29,42 @@ btnContainer.appendChild(generateNewGridBtn)
 generateNewGridBtn.classList.add('btn')
 generateNewGridBtn.textContent = 'GENERATE NEW GRID';
 
-function promptUser() {
-    prompt('Enter number of squares per line')
-}
 
-generateNewGridBtn.addEventListener('click', promptUser)
+
+
+function promptUser() {
+    let result = +prompt('Enter number of squares per line', '');
+         return result;
+   }
+
+   function updateGrid(number) {
+    numberOfSquares = number;;
+  
+    for (let i = 1; i <= numberOfSquares; i++) {
+        const square = document.createElement('div');
+    
+        square.textContent = `SQUARE ${i}`;
+        square.style.cssText = 'background-color: purple; border: 2px solid black;'
+    square.setAttribute('id', `${i}`)    
+    square.setAttribute('class', 'square')
+    
+        container.appendChild(square)
+    }
+   }
+
+   function removeChild() {
+    
+squares.forEach(square => {
+    container.removeChild(square)
+})
+
+   }
+   
+
+   
+
+generateNewGridBtn.addEventListener('click', () => {
+    removeChild();
+  updateGrid(promptUser())
+
+})
