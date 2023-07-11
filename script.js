@@ -19,6 +19,7 @@ const squares = document.querySelectorAll('.square')
 squares.forEach((square) => {
 square.addEventListener('mouseover', () => {
     square.style.backgroundColor = getRandomColor();
+decreaseBrightness(square)    
 })    
 })
 
@@ -91,4 +92,15 @@ function getRandomColor() {
         hexColor += letters[Math.floor(Math.random() * 16)];
     }
     return hexColor;
+}
+
+function decreaseBrightness(el) {
+    let currentFilter = el.style.filter;
+    let newFilter = '';
+    if (currentFilter) {
+        newFilter = currentFilter + ' ';
+    }
+    newFilter += 'brightness(50%)';
+    el.style.filter = newFilter;
+console.log(currentFilter);
 }
