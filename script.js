@@ -38,6 +38,7 @@ function promptUser() {
    }
 
    function updateGrid(number) {
+    
     numberOfSquares = number;;
   
     for (let i = 1; i <= numberOfSquares; i++) {
@@ -49,22 +50,40 @@ function promptUser() {
     square.setAttribute('class', 'square')
     
         container.appendChild(square)
-    }
-   }
-
-   function removeChild() {
-    
-squares.forEach(square => {
-    container.removeChild(square)
+        
+}
+const squares = document.querySelectorAll('.square')
+squares.forEach((square) => {
+square.addEventListener('mouseover', () => {
+    square.style.backgroundColor = 'white';
+})    
 })
 
    }
+
+   function removeChild() {
+    const squares = document.querySelectorAll('.square')
+
+squares.forEach(square => {
+    container.removeChild(square)
+})
+}
    
+function addPenEffect() {
+    squares.forEach((square) => {
+        square.addEventListener('mouseover', () => {
+            square.style.backgroundColor = 'white';
+        })    
+        })
+        
+}
 
    
 
 generateNewGridBtn.addEventListener('click', () => {
-    removeChild();
+
+    removeChild()
   updateGrid(promptUser())
+
 
 })
