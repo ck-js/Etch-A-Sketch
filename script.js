@@ -18,7 +18,7 @@ container.style.border = '10px solid yellow'
 const squares = document.querySelectorAll('.square')
 squares.forEach((square) => {
 square.addEventListener('mouseover', () => {
-    square.style.backgroundColor = 'white';
+    square.style.backgroundColor = getRandomColor();
 })    
 })
 
@@ -55,7 +55,7 @@ function promptUser() {
 const squares = document.querySelectorAll('.square')
 squares.forEach((square) => {
 square.addEventListener('mouseover', () => {
-    square.style.backgroundColor = 'white';
+    square.style.backgroundColor = getRandomColor();
 })    
 })
 
@@ -77,13 +77,18 @@ function addPenEffect() {
         })
         
 }
-
    
-
 generateNewGridBtn.addEventListener('click', () => {
-
     removeChild()
   updateGrid(promptUser())
 
-
 })
+
+function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let hexColor = '#';
+    for (let i = 0; i <6; i++) {
+        hexColor += letters[Math.floor(Math.random() * 16)];
+    }
+    return hexColor;
+}
